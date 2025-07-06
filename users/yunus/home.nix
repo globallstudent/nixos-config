@@ -7,22 +7,33 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    # UI / daily tools
     vscode
     telegram-desktop
     alacritty
-    git
-    zsh
-    starship
-    eza
-    bat
-    htop
-    neofetch
-    fastfetch
-    unzip
-    file
     google-chrome
-    tree
+    tree fastfetch neofetch eza bat htop unzip file wget curl
+
+    # Dev essentials
+    git zsh
+
+    # Programming: Python, Go, Rust
+    python3
+    python3Packages.pip
+    python3Packages.virtualenv
+
+    go
+    gcc
+
+    rustup
   ];
+
+  home.sessionVariables = {
+    GOPATH = "${config.home.homeDirectory}/go";
+    GOBIN = "${config.home.homeDirectory}/go/bin";
+  };
+
+
 
   programs.zsh = {
     enable = true;
@@ -44,6 +55,16 @@
     userName = "Asliddin";
     userEmail = "asliddinabdumannonov06@gmail.com";
   };
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      ms-python.python
+      golang.go
+      rust-lang.rust-analyzer
+    ];
+  };
+
 
   programs.alacritty.enable = true;
 
