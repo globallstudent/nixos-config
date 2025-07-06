@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "yunus";
@@ -7,7 +7,10 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    # UI / daily tools
+
+    inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
+
+    # Daily apps
     vscode
     telegram-desktop
     alacritty
@@ -15,17 +18,31 @@
     tree fastfetch neofetch eza bat htop unzip file wget curl
 
     # Dev essentials
-    git zsh
+    git zsh gcc
 
-    # Programming: Python, Go, Rust
+    # Languages
     python3
     python3Packages.pip
     python3Packages.virtualenv
-
     go
-    gcc
-
     rustup
+
+    # GNOME tools
+    gnome.gnome-tweaks
+    gnome.gnome-shell-extensions
+    gnome.gnome-extensions-app
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.appindicator
+    gnomeExtensions.ding
+    gnomeExtensions.user-themes
+    gnomeExtensions.caffeine
+
+    # Fonts & icon themes
+    nerd-fonts.jetbrains-mono
+    papirus-icon-theme
+    tela-icon-theme
+    gnome.adwaita-icon-theme
+    gnome-themes-extra
   ];
 
   home.sessionVariables = {
@@ -33,7 +50,11 @@
     GOBIN = "${config.home.homeDirectory}/go/bin";
   };
 
-
+  programs.git = {
+    enable = true;
+    userName = "Asliddin";
+    userEmail = "asliddinabdumannonov06@gmail.com";
+  };
 
   programs.zsh = {
     enable = true;
@@ -50,12 +71,6 @@
     enableZshIntegration = true;
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Asliddin";
-    userEmail = "asliddinabdumannonov06@gmail.com";
-  };
-
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
@@ -65,8 +80,37 @@
     ];
   };
 
-
   programs.alacritty.enable = true;
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      size = 11;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/shell" = {
+      favorite-apps = [
+        "org.gnome.Terminal.desktop"
+        "code.desktop"
+        "google-chrome.desktop"
+        "org.gnome.Nautilus.desktop"
+        "telegramdesktop.desktop"
+        "alacritty.desktop"
+      ];
+    };
+  };
 
   home.stateVersion = "25.05";
 }
