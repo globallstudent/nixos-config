@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -15,12 +17,22 @@
     shell = pkgs.zsh;
   };
 
+  programs.zsh.enable = true;
+
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  services.openssh.enable = true;
   networking.networkmanager.enable = true;
+  services.openssh.enable = true;
+
+  boot.loader.systemd-boot.enable = false;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/nvme0n1";  # 🔁 adjust if needed (e.g., /dev/nvme0n1)
+    useOSProber = true;
+  };
 
   environment.systemPackages = with pkgs; [
     git curl wget zsh
@@ -28,4 +40,3 @@
 
   system.stateVersion = "25.05";
 }
-
