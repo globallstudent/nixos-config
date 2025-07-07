@@ -34,13 +34,10 @@
   networking.networkmanager.enable = true;
   services.openssh.enable = true;
 
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    useOSProber = true;
-    devices = [ "nodev" ];  # ← this means "no block device", use EFI
-  };
+
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = false;
 
 
 
