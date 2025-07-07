@@ -16,6 +16,10 @@
   outputs = { self, nixpkgs, home-manager, flake-utils, ayugram-desktop, ... }:
     let
       system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -25,10 +29,13 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.yunus = import ./users/yunus/home.nix;
+            home-manager.users.yunus = import ./users/yunus/home.nix {
+              inherit pkgs;
+              inherit (self) inputs;
+              config = {};
+            };
           }
         ];
       };
     };
-    
 }

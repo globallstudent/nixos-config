@@ -26,28 +26,28 @@
     python3Packages.virtualenv
     go
     rustup
-
+    
     # GNOME tools
-    gnome.gnome-tweaks
-    gnome.gnome-shell-extensions
-    gnome.gnome-extensions-app
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.appindicator
-    gnomeExtensions.ding
-    gnomeExtensions.user-themes
-    gnomeExtensions.caffeine
+    gnome-tweaks
+    gnome-shell-extensions
+    #gnomeExtensions.dash-to-dock
+    #gnomeExtensions.appindicator
+    #gnomeExtensions.ding
+    #gnomeExtensions.user-themes
+    #gnomeExtensions.caffeine
 
     # Fonts & icon themes
     nerd-fonts.jetbrains-mono
     papirus-icon-theme
     tela-icon-theme
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     gnome-themes-extra
+
   ];
 
   home.sessionVariables = {
-    GOPATH = "${config.home.homeDirectory}/go";
-    GOBIN = "${config.home.homeDirectory}/go/bin";
+    GOPATH = "/home/yunus/go";
+    GOBIN = "/home/yunus/go/bin";
   };
 
   programs.git = {
