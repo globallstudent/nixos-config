@@ -81,5 +81,3 @@ After manual installation, their settings will still be preserved by the dconf c
 - `hosts/nixos/configuration.nix`: Added touchpad-gesture-customization extension
 - `users/yunus/home.nix`: Added comprehensive extension settings and updated enabled extensions list
 - `scripts/update-gnome-settings.sh`: New helper script for future updates
-
-Your GNOME extension settings will now persist perfectly across all NixOS rebuilds! 🎉

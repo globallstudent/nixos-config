@@ -49,8 +49,8 @@
       package = pkgs.gnome-themes-extra;
     };
     font = {
-      name = "JetBrainsMono Nerd Font";
-      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "Cascadia Code PL";
+      package = pkgs.cascadia-code;
       size = 11;
     };
   };
@@ -95,6 +95,10 @@
       clock-show-date = true;
       enable-animations = true;
       gtk-enable-primary-paste = false;
+      # System fonts
+      font-name = "Cascadia Code PL 11";
+      document-font-name = "Cascadia Code PL 11";
+      monospace-font-name = "Cascadia Code PL 10";
     };
 
     # Window manager settings and keybindings
@@ -104,6 +108,8 @@
       workspace-names = ["Main" "Work" "Media" "Other"];
       audible-bell = false;
       auto-raise = true;
+      # Window title font
+      titlebar-font = "Cascadia Code PL Bold 11";
     };
 
     "org/gnome/desktop/wm/keybindings" = {
