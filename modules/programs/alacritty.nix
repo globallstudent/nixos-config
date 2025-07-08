@@ -44,8 +44,6 @@
         size = 8.0;
       };
       
-      draw_bold_text_with_bright_colors = true;
-      
       # Base16 Default Dark 256 color scheme
       colors = {
         primary = {
@@ -92,9 +90,6 @@
       };
       
       mouse = {
-        double_click = { threshold = 300; };
-        triple_click = { threshold = 300; };
-        faux_scrolling_lines = 1;
         hide_when_typing = true;
         bindings = [
           { mouse = "Middle"; action = "PasteSelection"; }
@@ -110,9 +105,11 @@
         render_timer = false;
       };
       
-      shell = {
-        program = "/run/current-system/sw/bin/zsh";
-        args = ["--login"];
+      terminal = {
+        shell = {
+          program = "/run/current-system/sw/bin/zsh";
+          args = ["--login"];
+        };
       };
     };
   };
