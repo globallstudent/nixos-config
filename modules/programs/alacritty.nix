@@ -30,7 +30,7 @@
         bold_italic = {
           family = "Cascadia Code PL";
         };
-        size = 15.0;
+        size = 13.0;
       };
       
       # Nice dark theme with good contrast
@@ -80,9 +80,11 @@
       };
       
       # Use Zsh as the default shell
-      shell = {
-        program = "zsh";
-        args = ["-l"];
+      terminal = {
+        shell = {
+          program = "zsh";
+          args = ["-l"];
+        };
       };
     };
   };
