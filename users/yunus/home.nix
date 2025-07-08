@@ -215,13 +215,24 @@
       gtk-enable-primary-paste = false;
     };
 
-    # Window manager settings
+    # Window manager settings and keybindings
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
       focus-mode = "click";
       workspace-names = ["Main" "Work" "Media" "Other"];
       audible-bell = false;
       auto-raise = true;
+    };
+
+    "org/gnome/desktop/wm/keybindings" = {
+      switch-applications = ["<Alt>Tab"];
+      switch-applications-backward = ["<Shift><Alt>Tab"];
+      switch-windows = ["<Super>Tab"];
+      switch-windows-backward = ["<Shift><Super>Tab"];
+      close = ["<Super>q"];
+      maximize = ["<Super>Up"];
+      unmaximize = ["<Super>Down"];
+      minimize = ["<Super>h"];
     };
     
     # Dash-to-dock settings
@@ -233,40 +244,19 @@
       intellihide = true;
     };
 
-    # GNOME keybindings
-    "org/gnome/desktop/wm/keybindings" = {
-      switch-applications = ["<Alt>Tab"];
-      switch-applications-backward = ["<Shift><Alt>Tab"];
-      switch-windows = ["<Super>Tab"];
-      switch-windows-backward = ["<Shift><Super>Tab"];
-      close = ["<Super>q"];
-      maximize = ["<Super>Up"];
-      unmaximize = ["<Super>Down"];
-      minimize = ["<Super>h"];
-    };
-
-    # GNOME power settings
+    # Power settings
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-timeout = 3600;
       sleep-inactive-battery-timeout = 1800;
       power-button-action = "interactive";
     };
 
-    # Nautilus (file manager) preferences
+    # Nautilus preferences
     "org/gnome/nautilus/preferences" = {
       default-folder-viewer = "list-view";
       search-filter-time-type = "last_modified";
       show-create-link = true;
       show-delete-permanently = true;
-    };
-
-    # Better window focus behavior
-    "org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:minimize,maximize,close";
-      focus-mode = "click";
-      workspace-names = ["Main" "Work" "Media" "Other"];
-      audible-bell = false;
-      auto-raise = true;
     };
 
     # Touchpad settings
@@ -284,16 +274,6 @@
         use-system-font = true;
         scrollbar-policy = "never";
       };
-    };
-
-    # Performance settings for animations
-    "org/gnome/desktop/interface" = {
-      enable-hot-corners = true;
-      show-battery-percentage = true;
-      clock-show-weekday = true;
-      clock-show-date = true;
-      enable-animations = true;
-      gtk-enable-primary-paste = false;
     };
   };
 
