@@ -1,4 +1,4 @@
-  home.file.".config/nvim".source = ./../modules/astronvim;
+
 { config, pkgs, ayugram-desktop, ... }:
 
 {
@@ -119,5 +119,6 @@
     };
   };
 
+  home.file.".config/nvim".source = ./../modules/astronvim;
   home.stateVersion = "25.05";
 }
