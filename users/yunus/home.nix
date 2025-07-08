@@ -55,6 +55,11 @@
     };
   };
 
+  # Enable dconf watch for persistent settings
+  services.gnome-settings-daemon.enable = true;
+
+  dconf.enable = true;
+
   dconf.settings = {
     "org/gnome/shell" = {
       favorite-apps = [
@@ -163,9 +168,17 @@
     };
   };
 
+  # Rust toolchain configuration
+  home.file.".cargo/config.toml".text = ''
+    [build]
+    rustc-wrapper = "sccache"
+  '';
+
   home.sessionVariables = {
     GOPATH = "/home/yunus/go";
     GOBIN = "/home/yunus/go/bin";
+    CARGO_HOME = "/home/yunus/.cargo";
+    RUSTUP_HOME = "/home/yunus/.rustup";
   };
 
   programs.neovim = {
@@ -174,6 +187,15 @@
     viAlias = true;
     vimAlias = true;
   };
+
+  # Rust setup activation script
+  home.activation.rustupSetup = ''
+    if [[ ! -d "$HOME/.rustup" ]]; then
+      echo "Setting up Rust toolchain..."
+      ${pkgs.rustup}/bin/rustup default stable
+      ${pkgs.rustup}/bin/rustup component add clippy rustfmt rust-analyzer
+    fi
+  '';
 
   # AstroNvim configuration
   home.file = {
