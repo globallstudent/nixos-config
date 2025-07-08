@@ -38,18 +38,18 @@
           }
         ];
       };
-    };
 
-    homeConfigurations = {
-      yunus = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
+      homeConfigurations = {
+        yunus = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+            ./users/yunus/home.nix
+          ];
         };
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          ./users/yunus/home.nix
-        ];
       };
     };
 }
