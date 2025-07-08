@@ -67,10 +67,9 @@
     '';
   };
 
-  # Add postgresql to the environment packages
+  # Environment packages
   environment.systemPackages = with pkgs; [
     postgresql_15
-    # ... rest of your packages ...
   ] ++ import ../../modules/packages.nix { inherit pkgs; };
 
   system.stateVersion = "25.05";
