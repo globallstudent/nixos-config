@@ -16,7 +16,7 @@
         "golang"
       ];
     };
-    initExtra = ''
+    initContent = ''
       # Custom ZSH configurations
       setopt AUTO_CD              # Auto changes to a directory without typing cd
       setopt AUTO_PUSHD          # Push the old directory onto the stack on cd

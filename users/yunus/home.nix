@@ -44,7 +44,7 @@
     # Enable specific extensions
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
-    gnomeExtensions.ding  # Desktop icons
+    gnomeExtensions.gtk4-desktop-icons-ng-ding  # Desktop icons (new version)
     gnomeExtensions.user-themes
     gnomeExtensions.caffeine
     gnomeExtensions.blur-my-shell
@@ -108,7 +108,7 @@
       ];
       enabled-extensions = [
         "dash-to-dock@micxgx.gmail.com"
-        "ding@rastersoft.com"
+        "gtk4-desktop-icons@gnome-shell-extensions.g-c.online"
         "appindicatorsupport@rgcjonas.gmail.com"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
@@ -118,10 +118,10 @@
     };
     
     # Desktop icons settings
-    "org/gnome/shell/extensions/ding" = {
+    "org/gnome/shell/extensions/gtk4-desktop-icons-ng-ding" = {
       show-home = true;
       show-trash = true;
-      show-volumes = true;
+      show-mounted-volumes = true;
       icon-size = "standard";
     };
     
