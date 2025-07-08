@@ -186,12 +186,12 @@
       settings-version = 2;
     };
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      blur = false;  # DISABLED - this was causing reverse blur effect
-      blur-on-overview = false;
-      enable-all = false;
-      opacity = 255;  # No opacity change
-      sigma = 0;      # No blur
-      whitelist = [];  # Clear whitelist
+      blur = true;   # Re-enable for terminal blur
+      blur-on-overview = true;
+      enable-all = false;  # Only whitelist specific apps
+      opacity = 240;  # Slight opacity for blur effect
+      sigma = 15;     # Blur intensity
+      whitelist = ["Alacritty" "alacritty" "org.alacritty.Alacritty"];  # Multiple variants
     };
     "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
       brightness = 0.59999999999999998;
@@ -282,7 +282,7 @@
 
     # Enable experimental Mutter features for better effects
     "org/gnome/mutter" = {
-      experimental-features = ["scale-monitor-framebuffer"];
+      experimental-features = ["scale-monitor-framebuffer" "kms-modifiers" "rt-scheduler"];
     };
 
     # Touchpad gesture customization settings

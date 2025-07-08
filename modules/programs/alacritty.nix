@@ -11,11 +11,11 @@
           x = 10;
           y = 10;
         };
-        opacity = 0.75;  # More transparent for better visual effect
+        opacity = 0.85;  # Transparency works on both Wayland and X11
         decorations = "Full";
         decorations_theme_variant = "Dark";
         dynamic_title = true;
-        # Removed blur = true - doesn't work properly on GNOME Wayland
+        # blur = true;  # Commented out - not supported on Wayland
         startup_mode = "Windowed";
         class = {
           instance = "Alacritty";

@@ -121,6 +121,7 @@
       }))
       telegram-desktop
       alacritty
+      kitty  # Alternative terminal with better blur support on Wayland
 
       # Development tools
       git
