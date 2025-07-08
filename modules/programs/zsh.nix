@@ -5,7 +5,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      theme = "agnoster";
+      theme = "simple";
       plugins = [
         "git"
         "docker"
@@ -60,6 +60,9 @@
       alias sys='systemctl'
       alias sysu='systemctl --user'
       alias hm='home-manager'
+      
+      # Set a simple prompt without fancy characters
+      PROMPT='%F{blue}%n@%m%f:%F{green}%~%f$ '
     '';
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake .#";
