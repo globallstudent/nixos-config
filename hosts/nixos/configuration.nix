@@ -54,9 +54,7 @@
   };
 
 
-  networking.networkmanager.enable = true;
   services.openssh.enable = true;
-
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -132,28 +130,28 @@
       alacritty
 
       # Development tools
-    git
-    gcc
-    python3
-    python3Packages.pip
-    python3Packages.virtualenv
-    go
-    rustup
-    gdb
-    openjdk
-    jdk
-    maven
-    gradle
+      git
+      gcc
+      python3
+      python3Packages.pip
+      python3Packages.virtualenv
+      go
+      rustup
+      gdb
+      openjdk
+      jdk
+      maven
+      gradle
 
-    # GNOME extensions
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.appindicator
-    gnomeExtensions.gtk4-desktop-icons-ng-ding
-    gnomeExtensions.caffeine
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.vitals
-
-  ] ++ import ../../modules/packages.nix { inherit pkgs; };
+      # GNOME extensions
+      gnomeExtensions.dash-to-dock
+      gnomeExtensions.appindicator
+      gnomeExtensions.gtk4-desktop-icons-ng-ding
+      gnomeExtensions.caffeine
+      gnomeExtensions.blur-my-shell
+      gnomeExtensions.vitals
+    ] ++ import ../../modules/packages.nix { inherit pkgs; };
+  };
 
   # Desktop Integration
   qt = {
