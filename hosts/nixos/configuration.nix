@@ -50,15 +50,15 @@
       host    all             all             127.0.0.1/32           trust
       host    all             all             ::1/128                trust
     '';
-    ensureUsers = [
-      {
-        name = "yunus";
-        ensurePermissions = {
-          "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
-        };
+    ensureUsers = [{
+      name = "yunus";
+      ensureDBOwnership = true;
+      ensureClauses = {
         superuser = true;
-      }
-    ];
+        createrole = true;
+        createdb = true;
+      };
+    }];
     # Initialize with some basic extensions
     initialScript = pkgs.writeText "backend-initScript" ''
       CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
