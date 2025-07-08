@@ -1,5 +1,5 @@
   home.file.".config/nvim".source = ./../modules/astronvim;
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ayugram-desktop, ... }:
 
 {
   home.username = "yunus";
@@ -9,7 +9,7 @@
 
   home.packages = with pkgs; [
 
-    inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
+    ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
 
     # Daily apps
     vscode

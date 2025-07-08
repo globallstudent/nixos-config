@@ -32,7 +32,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.yunus = import ./users/yunus/home.nix {
               inherit pkgs;
-              inherit (self) inputs;
+              ayugram-desktop = self.ayugram-desktop;
               config = {};
             };
           }
@@ -45,7 +45,7 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { ayugram-desktop = self.ayugram-desktop; };
           modules = [
             ./users/yunus/home.nix
           ];
