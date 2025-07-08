@@ -39,9 +39,39 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enable = false;
 
+  # Enable PostgreSQL service
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      # TYPE  DATABASE        USER            ADDRESS                 METHOD
+      local   all             all                                     trust
+      host    all             all             127.0.0.1/32           trust
+      host    all             all             ::1/128                trust
+    '';
+    ensureUsers = [
+      {
+        name = "yunus";
+        ensurePermissions = {
+          "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
+        };
+        superuser = true;
+      }
+    ];
+    # Initialize with some basic extensions
+    initialScript = pkgs.writeText "backend-initScript" ''
+      CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+      CREATE EXTENSION IF NOT EXISTS "hstore";
+      CREATE EXTENSION IF NOT EXISTS "pg_trgm";
+    '';
+  };
 
-
-  environment.systemPackages = import ../../modules/packages.nix { inherit pkgs; };
+  # Add postgresql to the environment packages
+  environment.systemPackages = with pkgs; [
+    postgresql_15
+    # ... rest of your packages ...
+  ] ++ import ../../modules/packages.nix { inherit pkgs; };
 
   system.stateVersion = "25.05";
 }

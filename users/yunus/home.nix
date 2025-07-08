@@ -36,11 +36,15 @@
     # GNOME tools
     gnome-tweaks
     gnome-shell-extensions
-    #gnomeExtensions.dash-to-dock
-    #gnomeExtensions.appindicator
-    #gnomeExtensions.ding
-    #gnomeExtensions.user-themes
-    #gnomeExtensions.caffeine
+    gnome-extension-manager  # Add the extension manager
+    # Enable specific extensions
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.appindicator
+    gnomeExtensions.ding  # Desktop icons
+    gnomeExtensions.user-themes
+    gnomeExtensions.caffeine
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.vitals  # System monitoring
 
     # Fonts & icon themes
     nerd-fonts.jetbrains-mono
@@ -81,7 +85,73 @@
     ];
   };
 
-  programs.alacritty.enable = true;
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      window = {
+        padding = {
+          x = 8;
+          y = 8;
+        };
+        decorations = "none";
+        startup_mode = "Maximized";
+        opacity = 0.98;
+      };
+      scrolling = {
+        history = 10000;
+        multiplier = 3;
+      };
+      font = {
+        normal = {
+          family = "JetBrainsMono Nerd Font";
+          style = "Regular";
+        };
+        bold = {
+          family = "JetBrainsMono Nerd Font";
+          style = "Bold";
+        };
+        italic = {
+          family = "JetBrainsMono Nerd Font";
+          style = "Italic";
+        };
+        size = 11;
+      };
+      colors = {
+        primary = {
+          background = "#1a1b26";
+          foreground = "#c0caf5";
+        };
+        normal = {
+          black = "#15161e";
+          red = "#f7768e";
+          green = "#9ece6a";
+          yellow = "#e0af68";
+          blue = "#7aa2f7";
+          magenta = "#bb9af7";
+          cyan = "#7dcfff";
+          white = "#a9b1d6";
+        };
+        bright = {
+          black = "#414868";
+          red = "#f7768e";
+          green = "#9ece6a";
+          yellow = "#e0af68";
+          blue = "#7aa2f7";
+          magenta = "#bb9af7";
+          cyan = "#7dcfff";
+          white = "#c0caf5";
+        };
+      };
+      cursor = {
+        style = {
+          shape = "Beam";
+          blinking = "On";
+        };
+        blink_interval = 750;
+        unfocused_hollow = true;
+      };
+    };
+  };
 
   gtk = {
     enable = true;
@@ -110,6 +180,120 @@
         "telegramdesktop.desktop"
         "alacritty.desktop"
       ];
+      enabled-extensions = [
+        "dash-to-dock@micxgx.gmail.com"
+        "ding@rastersoft.com"
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "caffeine@patapon.info"
+        "blur-my-shell@aunetx"
+        "Vitals@CoreCoding.com"
+      ];
+    };
+    
+    # Desktop icons settings
+    "org/gnome/shell/extensions/ding" = {
+      show-home = true;
+      show-trash = true;
+      show-volumes = true;
+      icon-size = "standard";
+    };
+    
+    # Desktop background
+    "org/gnome/desktop/background" = {
+      picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/adwaita-l.jpg";
+      picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/adwaita-d.jpg";
+    };
+
+    # Interface settings
+    "org/gnome/desktop/interface" = {
+      enable-hot-corners = true;
+      show-battery-percentage = true;
+      clock-show-weekday = true;
+      clock-show-date = true;
+      enable-animations = true;
+      gtk-enable-primary-paste = false;
+    };
+
+    # Window manager settings
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+      focus-mode = "click";
+      workspace-names = ["Main" "Work" "Media" "Other"];
+      audible-bell = false;
+      auto-raise = true;
+    };
+    
+    # Dash-to-dock settings
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      dock-position = "BOTTOM";
+      extend-height = false;
+      dock-fixed = false;
+      autohide = true;
+      intellihide = true;
+    };
+
+    # GNOME keybindings
+    "org/gnome/desktop/wm/keybindings" = {
+      switch-applications = ["<Alt>Tab"];
+      switch-applications-backward = ["<Shift><Alt>Tab"];
+      switch-windows = ["<Super>Tab"];
+      switch-windows-backward = ["<Shift><Super>Tab"];
+      close = ["<Super>q"];
+      maximize = ["<Super>Up"];
+      unmaximize = ["<Super>Down"];
+      minimize = ["<Super>h"];
+    };
+
+    # GNOME power settings
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-timeout = 3600;
+      sleep-inactive-battery-timeout = 1800;
+      power-button-action = "interactive";
+    };
+
+    # Nautilus (file manager) preferences
+    "org/gnome/nautilus/preferences" = {
+      default-folder-viewer = "list-view";
+      search-filter-time-type = "last_modified";
+      show-create-link = true;
+      show-delete-permanently = true;
+    };
+
+    # Better window focus behavior
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+      focus-mode = "click";
+      workspace-names = ["Main" "Work" "Media" "Other"];
+      audible-bell = false;
+      auto-raise = true;
+    };
+
+    # Touchpad settings
+    "org/gnome/desktop/peripherals/touchpad" = {
+      tap-to-click = true;
+      natural-scroll = true;
+      two-finger-scrolling-enabled = true;
+    };
+
+    # Terminal preferences
+    "org/gnome/terminal/legacy/profiles:" = {
+      default = "b1dcc9dd-5262-4d8d-a863-c897e6d979b9";
+      "b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
+        audible-bell = false;
+        use-system-font = true;
+        scrollbar-policy = "never";
+      };
+    };
+
+    # Performance settings for animations
+    "org/gnome/desktop/interface" = {
+      enable-hot-corners = true;
+      show-battery-percentage = true;
+      clock-show-weekday = true;
+      clock-show-date = true;
+      enable-animations = true;
+      gtk-enable-primary-paste = false;
     };
   };
 
