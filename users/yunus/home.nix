@@ -186,12 +186,12 @@
       settings-version = 2;
     };
     "org/gnome/shell/extensions/blur-my-shell/applications" = {
-      blur = true;
-      blur-on-overview = true;
-      enable-all = true;
-      opacity = 240;  # 0-255 scale for application blur
-      sigma = 15;     # Blur intensity
-      whitelist = ["Alacritty"];  # Specifically enable for Alacritty
+      blur = false;  # DISABLED - this was causing reverse blur effect
+      blur-on-overview = false;
+      enable-all = false;
+      opacity = 255;  # No opacity change
+      sigma = 0;      # No blur
+      whitelist = [];  # Clear whitelist
     };
     "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
       brightness = 0.59999999999999998;

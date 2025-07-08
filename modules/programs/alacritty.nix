@@ -11,12 +11,11 @@
           x = 10;
           y = 10;
         };
-        opacity = 0.85;  # Slightly more transparent for better blur effect
+        opacity = 0.75;  # More transparent for better visual effect
         decorations = "Full";
         decorations_theme_variant = "Dark";
         dynamic_title = true;
-        blur = true;
-        # Additional window options for better integration
+        # Removed blur = true - doesn't work properly on GNOME Wayland
         startup_mode = "Windowed";
         class = {
           instance = "Alacritty";
@@ -37,13 +36,13 @@
         bold_italic = {
           family = "Cascadia Code PL";
         };
-        size = 13.0;
+        size = 12.0;
       };
       
       # Dark theme with black/dark background
       colors = {
         primary = {
-          background = "#0d1117";  # Dark black/gray background
+          background = "#0a0a0a";  # Very dark background for better transparency effect
           foreground = "#c9d1d9";  # Light gray text
         };
         normal = {
