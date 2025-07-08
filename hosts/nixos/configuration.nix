@@ -164,6 +164,7 @@
       fira-code-symbols
       jetbrains-mono
       nerd-fonts.jetbrains-mono
+      cascadia-code
     ];
     fontconfig = {
       defaultFonts = {

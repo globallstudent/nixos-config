@@ -8,30 +8,29 @@
       
       window = {
         padding = {
-          x = 4;
-          y = 4;
+          x = 10;
+          y = 10;
         };
-        opacity = 0.85;  # Add some transparency
-        blur = true;     # Enable blur effect
-        decorations = "none";
-        startup_mode = "Windowed";
+        opacity = 0.9;
+        decorations = "Full";
+        decorations_theme_variant = "Light";
         dynamic_title = true;
       };
       
       font = {
         normal = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Regular";
+          family = "Cascadia Code PL";
         };
         bold = {
-          family = "JetBrainsMono Nerd Font";  
-          style = "Bold";
+          family = "Cascadia Code PL";
         };
         italic = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Italic";
+          family = "Cascadia Code PL";
         };
-        size = 12.0;
+        bold_italic = {
+          family = "Cascadia Code PL";
+        };
+        size = 15.0;
       };
       
       # Nice dark theme with good contrast
