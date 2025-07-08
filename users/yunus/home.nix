@@ -167,10 +167,11 @@
   };
 
   # Rust toolchain configuration
-  home.file.".cargo/config.toml".text = ''
-    [build]
-    rustc-wrapper = "sccache"
-  '';
+  # Removed sccache wrapper as it's not installed
+  # home.file.".cargo/config.toml".text = ''
+  #   [build]
+  #   rustc-wrapper = "sccache"
+  # '';
 
   home.sessionVariables = {
     GOPATH = "/home/yunus/go";
