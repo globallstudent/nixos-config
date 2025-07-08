@@ -1,3 +1,4 @@
+  home.file.".config/nvim".source = ./../modules/astronvim;
 { config, pkgs, inputs, ... }:
 
 {

@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     flake-utils.url = "github:numtide/flake-utils";
+
     ayugram-desktop = {
       type = "git";
       submodules = true;
@@ -35,6 +36,19 @@
               config = {};
             };
           }
+        ];
+      };
+    };
+
+    homeConfigurations = {
+      yunus = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./users/yunus/home.nix
         ];
       };
     };
