@@ -75,15 +75,10 @@
         "caffeine@patapon.info"
         "blur-my-shell@aunetx"
         "Vitals@CoreCoding.com"
+        "aztaskbar@aztaskbar.gitlab.com"
+        "gtk4-ding@smedius.gitlab.com"
+        "touchpad-gesture-customization@coooolapps.com"
       ];
-    };
-    
-    # Desktop icons settings
-    "org/gnome/shell/extensions/gtk4-desktop-icons-ng-ding" = {
-      show-home = true;
-      show-trash = true;
-      show-mounted-volumes = true;
-      icon-size = "standard";
     };
     
     # Desktop background
@@ -122,15 +117,6 @@
       minimize = ["<Super>h"];
     };
     
-    # Dash-to-dock settings
-    "org/gnome/shell/extensions/dash-to-dock" = {
-      dock-position = "BOTTOM";
-      extend-height = false;
-      dock-fixed = false;
-      autohide = true;
-      intellihide = true;
-    };
-
     # Power settings
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-timeout = 3600;
@@ -163,6 +149,128 @@
       use-system-font = true;
       scrollbar-policy = "never";
       visible-name = "Default";
+    };
+
+    # Extension Settings
+    # Aztaskbar settings
+    "org/gnome/shell/extensions/aztaskbar" = {
+      clock-font-size = "(false, 14)";
+      clock-position-offset = 0;
+      favorites-on-all-monitors = true;
+      intellihide = false;
+      isolate-monitors = true;
+      isolate-workspaces = false;
+      main-panel-height = "(true, 36)";
+      override-panel-clock-format = "(false, '%A, %B %d - %H∶%M')";
+      panel-location = "TOP";
+      position-offset = 1;
+      prefs-visible-page = "";
+      show-apps-button = "(false, 0)";
+      show-panel-activities-button = true;
+      show-weather-by-clock = "OFF";
+      taskbar-spacing = 0;
+      tool-tips = true;
+      update-notifier-project-version = 30;
+      window-preview-title-font-size = 11;
+      window-previews = true;
+    };
+
+    # Blur my shell settings
+    "org/gnome/shell/extensions/blur-my-shell" = {
+      settings-version = 2;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
+      brightness = 0.59999999999999998;
+      sigma = 30;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab" = {
+      pipeline = "pipeline_default";
+    };
+    "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
+      blur = true;
+      brightness = 0.59999999999999998;
+      pipeline = "pipeline_default_rounded";
+      sigma = 30;
+      static-blur = true;
+      style-dash-to-dock = 0;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/lockscreen" = {
+      pipeline = "pipeline_default";
+    };
+    "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      pipeline = "pipeline_default";
+    };
+    "org/gnome/shell/extensions/blur-my-shell/panel" = {
+      brightness = 0.59999999999999998;
+      pipeline = "pipeline_default";
+      sigma = 30;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/screenshot" = {
+      pipeline = "pipeline_default";
+    };
+    "org/gnome/shell/extensions/blur-my-shell/window-list" = {
+      brightness = 0.59999999999999998;
+      sigma = 30;
+    };
+
+    # Caffeine settings
+    "org/gnome/shell/extensions/caffeine" = {
+      indicator-position-max = 2;
+      user-enabled = false;
+    };
+
+    # Dash to dock settings
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      autohide = true;
+      dock-fixed = false;
+      dock-position = "BOTTOM";
+      extend-height = false;
+      intellihide = true;
+    };
+
+    # GTK4 Desktop Icons NG (ding) settings
+    "org/gnome/shell/extensions/gtk4-desktop-icons-ng-ding" = {
+      icon-size = "standard";
+      show-home = true;
+      show-mounted-volumes = true;
+      show-trash = true;
+    };
+
+    # GTK4 ding settings
+    "org/gnome/shell/extensions/gtk4-ding" = {
+      add-volumes-opposite = true;
+      dark-text-in-labels = false;
+      show-trash = false;
+      show-volumes = false;
+      start-corner = "top-right";
+    };
+
+    # Vitals settings
+    "org/gnome/shell/extensions/vitals" = {
+      alphabetize = true;
+      fixed-widths = true;
+      hide-icons = false;
+      hide-zeros = false;
+      icon-style = 1;
+      menu-centered = false;
+      show-battery = false;
+      show-fan = true;
+      show-memory = true;
+      show-network = true;
+      show-processor = true;
+      show-storage = true;
+      show-system = true;
+      show-temperature = true;
+      show-voltage = true;
+      update-time = 5;
+      use-higher-precision = false;
+    };
+
+    # Touchpad gesture customization settings
+    "org/gnome/shell/extensions/touchpad-gesture-customization" = {
+      allow-minimize-window = true;
+      vertical-swipe-3-fingers-gesture = "WINDOW_MANIPULATION";
+      vertical-swipe-4-fingers-gesture = "OVERVIEW_NAVIGATION";
     };
   };
 

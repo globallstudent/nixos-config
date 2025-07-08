@@ -144,6 +144,12 @@
       gnomeExtensions.caffeine
       gnomeExtensions.blur-my-shell
       gnomeExtensions.vitals
+      gnomeExtensions.touchpad-gesture-customization
+      # Additional extensions from your current setup
+      # Note: Some extensions might need to be installed manually from extensions.gnome.org
+      # if they're not available in nixpkgs
+      # aztaskbar - needs manual installation
+      # gtk4-ding - might need manual installation
     ] ++ import ../../modules/packages.nix { inherit pkgs; };
   };
 
