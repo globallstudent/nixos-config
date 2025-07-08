@@ -118,7 +118,8 @@
     };
   };
 
-  home.file.".config/nvim".source = ../../modules/astronvim;
+  home.file.".config/nvim/init.lua".source = ../../modules/astronvim/init.lua;
+  home.file.".config/nvim/lua".source = ../../modules/astronvim/lua;
 
   home.stateVersion = "25.05";
 }
