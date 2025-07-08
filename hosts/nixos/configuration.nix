@@ -23,7 +23,7 @@
   services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
   services.displayManager.gdm.enable = true;
-  services.gnome.core-utilities.enable = true;
+  services.gnome.core-apps.enable = true;
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gnome-browser-connector.enable = true; # required for extensions.gnome.org
 

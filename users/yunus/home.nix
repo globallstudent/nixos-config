@@ -45,7 +45,6 @@
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
     gnomeExtensions.gtk4-desktop-icons-ng-ding  # Desktop icons (new version)
-    gnomeExtensions.user-themes
     gnomeExtensions.caffeine
     gnomeExtensions.blur-my-shell
     gnomeExtensions.vitals  # System monitoring
@@ -110,7 +109,6 @@
         "dash-to-dock@micxgx.gmail.com"
         "gtk4-desktop-icons@gnome-shell-extensions.g-c.online"
         "appindicatorsupport@rgcjonas.gmail.com"
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
         "caffeine@patapon.info"
         "blur-my-shell@aunetx"
         "Vitals@CoreCoding.com"
