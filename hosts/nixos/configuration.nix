@@ -18,7 +18,16 @@
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    shellInit = ''
+      # Nix
+      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      fi
+      # End Nix
+    '';
+  };
 
   services.xserver.enable = true;
   services.desktopManager.gnome.enable = true;
@@ -27,8 +36,22 @@
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gnome-browser-connector.enable = true; # required for extensions.gnome.org
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+      config.common.default = "gnome";
+    };
+    mime = {
+      enable = true;
+      defaultApplications = {
+        "text/html" = "google-chrome.desktop";
+        "x-scheme-handler/http" = "google-chrome.desktop";
+        "x-scheme-handler/https" = "google-chrome.desktop";
+        "x-scheme-handler/telegram" = "telegramdesktop.desktop";
+      };
+    };
+  };
 
 
   networking.networkmanager.enable = true;
@@ -68,28 +91,47 @@
     '';
   };
 
-  # Environment packages
-  environment.systemPackages = with pkgs; [
-    # System essentials
-    postgresql_15
-    vscode
-    telegram-desktop
-    google-chrome
-    tree
-    fastfetch
-    neofetch
-    eza
-    bat
-    htop
-    unzip
-    file
-    wget
-    curl
-    gnome-tweaks
-    gnome-shell-extensions
-    gnome-extension-manager
+  # Desktop applications
+  programs.firefox.enable = true;
+  
+  # VSCode
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode;
+  };
 
-    # Development tools
+  # Environment packages
+  environment = {
+    systemPackages = with pkgs; [
+      # System essentials
+      postgresql_15
+      tree
+      fastfetch
+      neofetch
+      eza
+      bat
+      htop
+      unzip
+      file
+      wget
+      curl
+      gnome-tweaks
+      gnome-shell-extensions
+      gnome-extension-manager
+
+      # Desktop apps with proper desktop entries
+      ((google-chrome.override {
+        commandLineArgs = [
+          "--enable-features=UseOzonePlatform"
+          "--ozone-platform=wayland"
+        ];
+      }))
+      (telegram-desktop.override {
+        enableWebkitDesktop = true;
+      })
+      alacritty
+
+      # Development tools
     git
     gcc
     python3
@@ -112,6 +154,45 @@
     gnomeExtensions.vitals
 
   ] ++ import ../../modules/packages.nix { inherit pkgs; };
+
+  # Desktop Integration
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita";
+  };
+
+  # Font configuration
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      jetbrains-mono
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Noto Serif" "Liberation Serif" ];
+        sansSerif = [ "Noto Sans" "Liberation Sans" ];
+        monospace = [ "JetBrainsMono Nerd Font" "Liberation Mono" ];
+      };
+    };
+  };
+
+  # Enable flatpak support
+  services.flatpak.enable = true;
+
+  # Network Manager configuration
+  networking = {
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
+  };
 
   system.stateVersion = "25.05";
 }
