@@ -55,9 +55,7 @@
     };
   };
 
-  # Enable dconf watch for persistent settings
-  services.gnome-settings-daemon.enable = true;
-
+  # Enable dconf for persistent GNOME settings
   dconf.enable = true;
 
   dconf.settings = {
