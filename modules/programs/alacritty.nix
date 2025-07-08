@@ -11,10 +11,17 @@
           x = 10;
           y = 10;
         };
-        opacity = 0.9;
+        opacity = 0.85;  # Slightly more transparent for better blur effect
         decorations = "Full";
-        decorations_theme_variant = "Light";
+        decorations_theme_variant = "Dark";
         dynamic_title = true;
+        blur = true;
+        # Additional window options for better integration
+        startup_mode = "Windowed";
+        class = {
+          instance = "Alacritty";
+          general = "Alacritty";
+        };
       };
       
       font = {

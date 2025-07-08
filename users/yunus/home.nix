@@ -185,6 +185,14 @@
     "org/gnome/shell/extensions/blur-my-shell" = {
       settings-version = 2;
     };
+    "org/gnome/shell/extensions/blur-my-shell/applications" = {
+      blur = true;
+      blur-on-overview = true;
+      enable-all = true;
+      opacity = 240;  # 0-255 scale for application blur
+      sigma = 15;     # Blur intensity
+      whitelist = ["Alacritty"];  # Specifically enable for Alacritty
+    };
     "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
       brightness = 0.59999999999999998;
       sigma = 30;
@@ -270,6 +278,11 @@
       show-voltage = true;
       update-time = 5;
       use-higher-precision = false;
+    };
+
+    # Enable experimental Mutter features for better effects
+    "org/gnome/mutter" = {
+      experimental-features = ["scale-monitor-framebuffer"];
     };
 
     # Touchpad gesture customization settings
