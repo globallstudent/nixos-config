@@ -5,7 +5,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      theme = "amuse";  # Dark theme as requested
+      theme = "amuse";
       plugins = [
         "git"
         "docker"
