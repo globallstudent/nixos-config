@@ -70,7 +70,47 @@
 
   # Environment packages
   environment.systemPackages = with pkgs; [
+    # System essentials
     postgresql_15
+    vscode
+    telegram-desktop
+    google-chrome
+    tree
+    fastfetch
+    neofetch
+    eza
+    bat
+    htop
+    unzip
+    file
+    wget
+    curl
+    gnome-tweaks
+    gnome-shell-extensions
+    gnome-extension-manager
+
+    # Development tools
+    git
+    gcc
+    python3
+    python3Packages.pip
+    python3Packages.virtualenv
+    go
+    rustup
+    gdb
+    openjdk
+    jdk
+    maven
+    gradle
+
+    # GNOME extensions
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.appindicator
+    gnomeExtensions.gtk4-desktop-icons-ng-ding
+    gnomeExtensions.caffeine
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.vitals
+
   ] ++ import ../../modules/packages.nix { inherit pkgs; };
 
   system.stateVersion = "25.05";

@@ -11,51 +11,14 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-
     ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
-
-    # Daily apps
-    vscode
-    telegram-desktop
-    alacritty
-    google-chrome
-    tree fastfetch neofetch eza bat htop unzip file wget curl
-
-    # Dev essentials
-    git zsh gcc
-
-    # Languages
-    python3
-    python3Packages.pip
-    python3Packages.virtualenv
-    go
-    rustup
-    gcc
-    gdb
-    openjdk
-    jdk
-    maven
-    gradle
     
-    # GNOME tools
-    gnome-tweaks
-    gnome-shell-extensions
-    gnome-extension-manager  # Add the extension manager
-    # Enable specific extensions
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.appindicator
-    gnomeExtensions.gtk4-desktop-icons-ng-ding  # Desktop icons (new version)
-    gnomeExtensions.caffeine
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.vitals  # System monitoring
-
-    # Fonts & icon themes
+    # Fonts & themes
     nerd-fonts.jetbrains-mono
     papirus-icon-theme
     tela-icon-theme
     adwaita-icon-theme
     gnome-themes-extra
-
   ];
 
   programs.git = {
@@ -64,10 +27,7 @@
     userEmail = "asliddinabdumannonov06@gmail.com";
   };
 
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+
 
   programs.vscode = {
     enable = true;
@@ -191,11 +151,11 @@
     };
 
     # Terminal preferences
-    "org/gnome/terminal/legacy/profiles:/" = {
+    "org/gnome/terminal/legacy/profiles:" = {
       default = "b1dcc9dd-5262-4d8d-a863-c897e6d979b9";
       list = ["b1dcc9dd-5262-4d8d-a863-c897e6d979b9"];
     };
-    "org/gnome/terminal/legacy/profiles:/b1dcc9dd-5262-4d8d-a863-c897e6d979b9/" = {
+    "org/gnome/terminal/legacy/profiles:.b1dcc9dd-5262-4d8d-a863-c897e6d979b9" = {
       audible-bell = false;
       use-system-font = true;
       scrollbar-policy = "never";
