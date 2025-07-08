@@ -128,6 +128,7 @@
       python3
       python3Packages.pip
       python3Packages.virtualenv
+      uv  # Python package and project manager
       go
       rustup
       gdb
