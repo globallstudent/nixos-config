@@ -51,11 +51,6 @@
 
   ];
 
-  home.sessionVariables = {
-    GOPATH = "/home/yunus/go";
-    GOBIN = "/home/yunus/go/bin";
-  };
-
   programs.git = {
     enable = true;
     userName = "Asliddin";
@@ -118,8 +113,26 @@
     };
   };
 
-  home.file.".config/nvim/init.lua".source = ../../modules/astronvim/init.lua;
-  home.file.".config/nvim/lua".source = ../../modules/astronvim/lua;
+  home.sessionVariables = {
+    GOPATH = "/home/yunus/go";
+    GOBIN = "/home/yunus/go/bin";
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
+  # AstroNvim configuration
+  home.file = {
+    ".config/nvim/init.lua".source = ../../modules/astronvim/init.lua;
+    ".config/nvim/lua".source = ../../modules/astronvim/lua;
+    ".config/nvim/.stylua.toml".source = ../../modules/astronvim/.stylua.toml;
+    ".config/nvim/.neoconf.json".source = ../../modules/astronvim/.neoconf.json;
+    ".config/nvim/extra-lua".source = ../../modules/astronvim/extra-lua;
+  };
 
   home.stateVersion = "25.05";
 }
