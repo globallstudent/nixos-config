@@ -3,25 +3,68 @@
     enable = true;
     settings = {
       env = {
-        TERM = "screen-256color";
-      };
-      
-      general = {
-        live_config_reload = true;
+        TERM = "xterm-256color";
       };
       
       window = {
         padding = {
-          x = 2;
-          y = 2;
+          x = 4;
+          y = 4;
         };
-        decorations = "full";
-        opacity = 1.0;
-        dimensions = {
-          columns = 0;
-          lines = 0;
-        };
+        opacity = 0.85;  # Add some transparency
+        blur = true;     # Enable blur effect
+        decorations = "none";
+        startup_mode = "Windowed";
         dynamic_title = true;
+      };
+      
+      font = {
+        normal = {
+          family = "JetBrainsMono Nerd Font";
+          style = "Regular";
+        };
+        bold = {
+          family = "JetBrainsMono Nerd Font";  
+          style = "Bold";
+        };
+        italic = {
+          family = "JetBrainsMono Nerd Font";
+          style = "Italic";
+        };
+        size = 12.0;
+      };
+      
+      # Nice dark theme with good contrast
+      colors = {
+        primary = {
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
+        };
+        normal = {
+          black = "#45475a";
+          red = "#f38ba8";
+          green = "#a6e3a1";
+          yellow = "#f9e2af";
+          blue = "#89b4fa";
+          magenta = "#f5c2e7";
+          cyan = "#94e2d5";
+          white = "#bac2de";
+        };
+        bright = {
+          black = "#585b70";
+          red = "#f38ba8";
+          green = "#a6e3a1";
+          yellow = "#f9e2af";
+          blue = "#89b4fa";
+          magenta = "#f5c2e7";
+          cyan = "#94e2d5";
+          white = "#a6adc8";
+        };
+      };
+      
+      cursor = {
+        style = "Block";
+        unfocused_hollow = true;
       };
       
       scrolling = {
@@ -29,87 +72,18 @@
         multiplier = 3;
       };
       
-      font = {
-        normal = {
-          family = "Fira Code";
-          style = "Retina";
-        };
-        bold = {
-          family = "Fira Code";
-          style = "Bold";
-        };
-        italic = {
-          family = "Fira Code";
-        };
-        size = 8.0;
-      };
-      
-      # Base16 Default Dark 256 color scheme
-      colors = {
-        primary = {
-          background = "0x181818";
-          foreground = "0xd8d8d8";
-        };
-        cursor = {
-          text = "0x181818";
-          cursor = "0xd8d8d8";
-        };
-        normal = {
-          black = "0x181818";
-          red = "0xab4642";
-          green = "0xa1b56c";
-          yellow = "0xf7ca88";
-          blue = "0x7cafc2";
-          magenta = "0xba8baf";
-          cyan = "0x86c1b9";
-          white = "0xd8d8d8";
-        };
-        bright = {
-          black = "0x585858";
-          red = "0xab4642";
-          green = "0xa1b56c";
-          yellow = "0xf7ca88";
-          blue = "0x7cafc2";
-          magenta = "0xba8baf";
-          cyan = "0x86c1b9";
-          white = "0xd8d8d8";
-        };
-      };
-      
-      cursor = {
-        style = {
-          shape = "Block";
-          blinking = "Off";
-        };
-        unfocused_hollow = true;
-      };
-      
-      bell = {
-        animation = "EaseOutExpo";
-        duration = 0;
-      };
-      
-      mouse = {
-        hide_when_typing = true;
-        bindings = [
-          { mouse = "Middle"; action = "PasteSelection"; }
-        ];
-      };
-      
       selection = {
-        semantic_escape_chars = ",?`|:\"' ()[]{}<>";
         save_to_clipboard = true;
       };
       
-      debug = {
-        render_timer = false;
+      mouse = {
+        hide_when_typing = false;
       };
       
-      terminal = {
-        shell = {
-          program = "/run/current-system/sw/bin/zsh";
-          args = ["--login"];
-        };
+      # Use Zsh as the default shell
+      shell = {
+        program = "zsh";
+        args = ["-l"];
       };
     };
   };
