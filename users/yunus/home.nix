@@ -26,6 +26,16 @@
     python3Packages.virtualenv
     go
     rustup
+    gcc
+    gdb
+    clang
+    clang-tools
+    llvm
+    lldb
+    openjdk
+    jdk
+    maven
+    gradle
     
     # GNOME tools
     gnome-tweaks

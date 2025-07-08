@@ -41,9 +41,7 @@
 
 
 
-  environment.systemPackages = with pkgs; [
-    git curl wget zsh
-  ];
+  environment.systemPackages = import ../../modules/packages.nix { inherit pkgs; };
 
   system.stateVersion = "25.05";
 }
