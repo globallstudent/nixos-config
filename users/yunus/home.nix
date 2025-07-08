@@ -28,10 +28,6 @@
     rustup
     gcc
     gdb
-    clang
-    clang-tools
-    llvm
-    lldb
     openjdk
     jdk
     maven
