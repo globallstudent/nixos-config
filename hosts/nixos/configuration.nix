@@ -119,9 +119,7 @@
           "--ozone-platform=wayland"
         ];
       }))
-      (telegram-desktop.override {
-        enableWebkitDesktop = true;
-      })
+      telegram-desktop
       alacritty
 
       # Development tools
