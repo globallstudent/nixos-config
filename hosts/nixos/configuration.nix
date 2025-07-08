@@ -91,12 +91,6 @@
 
   # Desktop applications
   programs.firefox.enable = true;
-  
-  # VSCode
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode;
-  };
 
   # Environment packages
   environment = {
@@ -118,6 +112,7 @@
       gnome-extension-manager
 
       # Desktop apps with proper desktop entries
+      vscode
       ((google-chrome.override {
         commandLineArgs = [
           "--enable-features=UseOzonePlatform"
