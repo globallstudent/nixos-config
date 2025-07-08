@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       env = {
-        TERM = "xterm-256color";
+        TERM = "screen-256color";
       };
       
       general = {
@@ -12,17 +12,16 @@
       
       window = {
         padding = {
-          x = 8;
-          y = 8;
+          x = 2;
+          y = 2;
         };
-        decorations = "none";
-        startup_mode = "Maximized";
-        opacity = 0.98;
+        decorations = "full";
+        opacity = 1.0;
+        dimensions = {
+          columns = 0;
+          lines = 0;
+        };
         dynamic_title = true;
-        class = {
-          instance = "Alacritty";
-          general = "Alacritty";
-        };
       };
       
       scrolling = {
@@ -32,53 +31,50 @@
       
       font = {
         normal = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Regular";
+          family = "Fira Code";
+          style = "Retina";
         };
         bold = {
-          family = "JetBrainsMono Nerd Font";
+          family = "Fira Code";
           style = "Bold";
         };
         italic = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Italic";
+          family = "Fira Code";
         };
-        bold_italic = {
-          family = "JetBrainsMono Nerd Font";
-          style = "Bold Italic";
-        };
-        size = 11;
-        offset = {
-          x = 0;
-          y = 1;
-        };
+        size = 8.0;
       };
       
-      # Dark black background with standard colors
+      draw_bold_text_with_bright_colors = true;
+      
+      # Base16 Default Dark 256 color scheme
       colors = {
         primary = {
-          background = "#000000";  # Pure black background
-          foreground = "#ffffff";  # White text
+          background = "0x181818";
+          foreground = "0xd8d8d8";
+        };
+        cursor = {
+          text = "0x181818";
+          cursor = "0xd8d8d8";
         };
         normal = {
-          black = "#000000";
-          red = "#ff0000";
-          green = "#00ff00";
-          yellow = "#ffff00";
-          blue = "#0000ff";
-          magenta = "#ff00ff";
-          cyan = "#00ffff";
-          white = "#ffffff";
+          black = "0x181818";
+          red = "0xab4642";
+          green = "0xa1b56c";
+          yellow = "0xf7ca88";
+          blue = "0x7cafc2";
+          magenta = "0xba8baf";
+          cyan = "0x86c1b9";
+          white = "0xd8d8d8";
         };
         bright = {
-          black = "#808080";
-          red = "#ff8080";
-          green = "#80ff80";
-          yellow = "#ffff80";
-          blue = "#8080ff";
-          magenta = "#ff80ff";
-          cyan = "#80ffff";
-          white = "#ffffff";
+          black = "0x585858";
+          red = "0xab4642";
+          green = "0xa1b56c";
+          yellow = "0xf7ca88";
+          blue = "0x7cafc2";
+          magenta = "0xba8baf";
+          cyan = "0x86c1b9";
+          white = "0xd8d8d8";
         };
       };
       
@@ -87,25 +83,36 @@
           shape = "Block";
           blinking = "Off";
         };
-        thickness = 0.15;
+        unfocused_hollow = true;
       };
       
-      keyboard = {
+      bell = {
+        animation = "EaseOutExpo";
+        duration = 0;
+      };
+      
+      mouse = {
+        double_click = { threshold = 300; };
+        triple_click = { threshold = 300; };
+        faux_scrolling_lines = 1;
+        hide_when_typing = true;
         bindings = [
-          { key = "V"; mods = "Control|Shift"; action = "Paste"; }
-          { key = "C"; mods = "Control|Shift"; action = "Copy"; }
-          { key = "Insert"; mods = "Shift"; action = "PasteSelection"; }
-          { key = "Key0"; mods = "Control"; action = "ResetFontSize"; }
-          { key = "Equals"; mods = "Control"; action = "IncreaseFontSize"; }
-          { key = "Plus"; mods = "Control"; action = "IncreaseFontSize"; }
-          { key = "Minus"; mods = "Control"; action = "DecreaseFontSize"; }
-          { key = "F11"; mods = "None"; action = "ToggleFullscreen"; }
+          { mouse = "Middle"; action = "PasteSelection"; }
         ];
       };
       
       selection = {
-        semantic_escape_chars = ",│`|:\"' ()[]{}<>\t";
+        semantic_escape_chars = ",?`|:\"' ()[]{}<>";
         save_to_clipboard = true;
+      };
+      
+      debug = {
+        render_timer = false;
+      };
+      
+      shell = {
+        program = "/run/current-system/sw/bin/zsh";
+        args = ["--login"];
       };
     };
   };
