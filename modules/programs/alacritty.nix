@@ -33,31 +33,31 @@
         size = 13.0;
       };
       
-      # Nice dark theme with good contrast
+      # Dark theme with black/dark background
       colors = {
         primary = {
-          background = "#1e1e2e";
-          foreground = "#cdd6f4";
+          background = "#0d1117";  # Dark black/gray background
+          foreground = "#c9d1d9";  # Light gray text
         };
         normal = {
-          black = "#45475a";
-          red = "#f38ba8";
-          green = "#a6e3a1";
-          yellow = "#f9e2af";
-          blue = "#89b4fa";
-          magenta = "#f5c2e7";
-          cyan = "#94e2d5";
-          white = "#bac2de";
+          black = "#484f58";
+          red = "#ff7b72";
+          green = "#7ee787";
+          yellow = "#ffa657";
+          blue = "#79c0ff";
+          magenta = "#d2a8ff";
+          cyan = "#a5f3fc";
+          white = "#b1bac4";
         };
         bright = {
-          black = "#585b70";
-          red = "#f38ba8";
-          green = "#a6e3a1";
-          yellow = "#f9e2af";
-          blue = "#89b4fa";
-          magenta = "#f5c2e7";
-          cyan = "#94e2d5";
-          white = "#a6adc8";
+          black = "#6e7681";
+          red = "#ffa198";
+          green = "#56d364";
+          yellow = "#ffdf5d";
+          blue = "#79c0ff";
+          magenta = "#d2a8ff";
+          cyan = "#a5f3fc";
+          white = "#f0f6fc";
         };
       };
       

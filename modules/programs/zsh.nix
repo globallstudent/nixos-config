@@ -5,7 +5,7 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      theme = "robbyrussell";  # Use a simple, reliable theme
+      theme = "amuse";  # Dark theme as requested
       plugins = [
         "git"
         "docker"
@@ -61,8 +61,8 @@
       alias sysu='systemctl --user'
       alias hm='home-manager'
       
-      # Set a simple prompt without fancy characters
-      PROMPT='%F{blue}%n@%m%f:%F{green}%~%f$ '
+      # Don't override the oh-my-zsh theme prompt
+      # Let the amuse theme handle the prompt styling
     '';
     shellAliases = {
       update = "sudo nixos-rebuild switch --flake .#";
