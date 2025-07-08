@@ -119,6 +119,6 @@
     };
   };
 
-  home.file.".config/nvim".source = ./../modules/astronvim;
+  home.file.".config/nvim".source = ../../modules/astronvim;
   home.stateVersion = "25.05";
 }
