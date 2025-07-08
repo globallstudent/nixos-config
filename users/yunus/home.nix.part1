@@ -1,0 +1,60 @@
+{ config, pkgs, ayugram-desktop, ... }:
+
+{
+  home.username = "yunus";
+  home.homeDirectory = "/home/yunus";
+
+  programs.home-manager.enable = true;
+
+  home.packages = with pkgs; [
+    ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
+
+    # Daily apps
+    vscode
+    telegram-desktop
+    alacritty
+    google-chrome
+    tree fastfetch neofetch eza bat htop unzip file wget curl
+
+    # Dev essentials
+    git zsh gcc
+
+    # Languages
+    python3
+    python3Packages.pip
+    python3Packages.virtualenv
+    go
+    rustup
+    gcc
+    gdb
+    openjdk
+    jdk
+    maven
+    gradle
+    
+    # GNOME tools
+    gnome-tweaks
+    gnome-shell-extensions
+    gnome-extension-manager  # Add the extension manager
+    # Enable specific extensions
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.appindicator
+    gnomeExtensions.ding  # Desktop icons
+    gnomeExtensions.user-themes
+    gnomeExtensions.caffeine
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.vitals  # System monitoring
+
+    # Fonts & icon themes
+    nerd-fonts.jetbrains-mono
+    papirus-icon-theme
+    tela-icon-theme
+    adwaita-icon-theme
+    gnome-themes-extra
+  ];
+
+  programs.git = {
+    enable = true;
+    userName = "Asliddin";
+    userEmail = "asliddinabdumannonov06@gmail.com";
+  };
