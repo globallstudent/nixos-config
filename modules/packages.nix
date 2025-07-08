@@ -20,6 +20,7 @@ with pkgs;
   lnav
   unrar
   tree
+  neovim
   # cargo
   devbox
   fzf
