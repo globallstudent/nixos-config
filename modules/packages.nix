@@ -41,5 +41,6 @@
     gpu-screen-recorder gpu-screen-recorder-gtk
 
     nixpkgs-fmt statix
+    e-imzo
   ];
 }
